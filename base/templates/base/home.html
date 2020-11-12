@@ -1,0 +1,70 @@
+{% extends 'base/beforelogin.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- main headline starts -->
+<div class="container scrolleffect" id="main">
+	<div class="row">
+		<div class="col-md-6" id="firstcolumn">
+			<h1 id="typeeffect">Platform that <br> lets you connect with your <br>
+				<span></span>
+			</h1>
+		</div>
+		<div class="col-md-6" id="main-image">
+			<img src="{% static 'images/main-min.jpg' %}" alt="main pic">
+		</div>
+	</div>
+</div>
+<!-- main headline ends -->
+
+<!-- working starts -->
+<div class="container" id="working">
+	<h2 id="work-header">How it works</h2>
+	<h6>4 easy steps</h6>
+	<div class="row">
+		<div class="col-md-6 scrolleffect" id="card">
+			<div class="row">
+				<div class="col-3" id="stepnumber">1</div>
+				<div class="col-9">
+					<img src="{% static 'images/Mobile-login-min.jpg' %}" alt="">
+					<h3>Login</h3>
+					<p>All the users have been provided with their username and passwords. Using them you would be able to login into the platform</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 scrolleffect" id="card">
+			<div class="row">
+				<div class="col-3" id="stepnumber">2</div>
+				<div class="col-9">
+					<img src="{% static 'images/search-min.jpg' %}" alt="">
+					<h3>Search</h3>
+					<p>Users can search for thier mentors according to their expertise</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 scrolleffect" id="card">
+			<div class="row">
+				<div class="col-3" id="stepnumber">3</div>
+				<div class="col-9">
+					<img src="{% static 'images/Chat-min.jpg' %}" alt="">
+					<h3>Chat System</h3>
+					<p>After searching, users are able to connect 1:1 or in small groups via live chat.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 scrolleffect" id="card">
+			<div class="row">
+				<div class="col-3" id="stepnumber">4</div>
+				<div class="col-9">
+					<img src="{% static 'images/Documents-min.jpg' %}" alt="">
+					<h3>Saved Chat</h3>
+					<p>All your chat would be saved so that you can come and talk to your mentor again</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- working ends -->
+
+{% endblock %}
