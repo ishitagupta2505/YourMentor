@@ -1,0 +1,127 @@
+{% load static %}
+
+<!doctype html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>YourMentor</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/6d7ddb870c.js"></script>
+
+        <link rel="stylesheet" href="{% static 'css/after_login.css' %}">
+        <link rel="stylesheet" href="{% static 'css/mycourses.css' %}">
+
+        <!-- for scrolling effect -->
+        <link rel="stylesheet" href="{% static 'css/scroll.css' %}">
+
+        <style>
+		    html{
+		      scroll-behavior: smooth;
+		    }
+	    </style>
+	    
+    </head>
+    <body>
+
+        <div id="deppage">
+            <div class="d-none d-md-block" id="sidebar" onmouseover="togglesidebar()" onmouseout="togglesidebar()">
+                <a class="navbar-brand" href="after_login.html" id="logo">YourMentor</a>
+                <ul>
+                    <li><a href=""><i class="fas fa-comments"></i>Chat</a></li>
+                    <li><a href="{% url 'department' %}"><i class="fas fa-university"></i>Department</a></li>
+                    <li><a href=""><i class="fas fa-user"></i>MyProfile</a></li>
+                    <li><a href="{% url 'mycourse' %}"><i class="fas fa-book-open"></i>MyCourses</a></li>
+                    <li><a href="{% url 'logoutUser' %}"><i class="fas fa-sign-out-alt"></i>LogOut</a></li>
+                </ul>
+            </div>
+            <div id="main">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="searchbar">
+                            <input class="search_input" type="text" name="" placeholder="Search...">
+                            <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                        </div>
+                        <div class="person d-none d-md-block">
+                            <i class="fas fa-user"></i>
+                            <span>{{request.user.get_full_name}}</span>
+                        </div>
+                        <div class="dropdown d-md-none person">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user"></i>
+                                <span>{{request.user.get_full_name}}</span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="ddcontent">
+                                <a class="dropdown-item" href=""><i class="fas fa-comments"></i>Chat</a>
+                                <a class="dropdown-item" href="{% url 'department' %}"><i class="fas fa-university"></i>Department</a>
+                                <a class="dropdown-item" href=""><i class="fas fa-user"></i>MyProfile</a>
+                                <a class="dropdown-item" href="{% url 'mycourse' %}"><i class="fas fa-book-open"></i>MyCourses</a>
+                                <a class="dropdown-item" href="{% url 'logoutUser' %}"><i class="fas fa-sign-out-alt"></i>LogOut</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                {% block content %}
+                {% endblock %}
+
+                 {% include 'base/footer.html' %}
+            
+            </div>
+        </div>
+
+
+       <button onclick="topFunction()" id="back-to-top" title="Go to top"><i class="fas fa-arrow-circle-up"></i></button>
+
+       <!-- go to top script -->
+       <script>
+           var mybutton = document.getElementById("back-to-top");
+           window.onscroll = function() {scrollFunction()};
+
+           function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+
+
+            var mini=true;
+            function togglesidebar(){
+                if(mini){
+                    document.querySelector('#deppage').querySelector('#sidebar').querySelector('ul').style.paddingTop="0";
+                    document.querySelector('#deppage').querySelector('#logo').style.display="block";
+                    document.querySelector('#deppage').querySelector('#sidebar').style.width="20%";
+                    document.querySelector('#deppage').querySelector('#main').style.marginLeft="20%";
+                    this.mini=false;
+                }
+                else{
+                    document.querySelector('#deppage').querySelector('#sidebar').querySelector('ul').style.paddingTop="137px";
+                    document.querySelector('#deppage').querySelector('#logo').style.display="none";
+                    document.querySelector('#deppage').querySelector('#sidebar').style.width="6%";
+                    document.querySelector('#deppage').querySelector('#main').style.marginLeft="6%";
+                    this.mini=true;
+                }
+            }
+       </script>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<script src="{% static 'js/script.js' %}"></script>
+    </body>
+</html>

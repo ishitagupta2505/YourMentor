@@ -1,0 +1,291 @@
+*{
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Work Sans', sans-serif;
+	line-height: 1.8;
+	overflow-x: hidden;
+}
+
+
+/* -----------style for navbar-----------------*/
+header{
+	margin-top: 20px;
+	margin-bottom: 90px;
+}
+
+.floatingNav {
+  width: 100%;
+  border-radius: 2px;
+  box-shadow: 0px 1px 10px #999;
+}
+
+#navbar-header a{
+	margin: 10px 30px 10px 30px;
+	padding: 0;
+}
+
+#navbar-header a#logo{
+	background: -webkit-linear-gradient(0deg, rgba(193,46,59,0.9640231092436975) 38%, 
+		rgba(255,141,99,1) 49%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+	font-family: 'Sansita Swashed', cursive;
+	font-size: 2vw;
+}
+
+#navbar-header ul li a{
+	color: #1AA6B7;
+	font-size: 1.2em;
+	font-weight: 600;
+	padding-top: 3px;
+	position: relative;
+    display: inline-block;
+    overflow: hidden;
+    background: linear-gradient(to right, #002D40, #002D40 50%, #1AA6B7 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+}
+
+/*#navbar-header ul li a.active{
+	border-bottom: 2px dotted #1AA6B7;
+}
+*/
+
+#navbar-header ul li a:hover{
+	color: #002D40;
+	background-position: 0 100%;
+}
+
+#navbar-header #login{
+	background-color: #FF414D;
+	padding: 3px 10px;
+	border-radius: 10px;
+	font-size: 1em;
+	color: white;
+}
+
+#navbar-header a#login:hover{
+	text-decoration: none;
+	background-color: #F56A79;
+}
+/* ------------------style ends for navbar------------------- */
+
+
+/*  ------------------style for main-----------------------*/
+#main{
+	/*margin-top: 150px;*/
+	margin-bottom: 110px;
+}
+
+#main #firstcolumn{
+	display: inline-grid;
+	justify-content: center;
+	align-items: center;
+}
+
+#main #firstcolumn #typeeffect{
+	font-weight: 300;
+	font-size: 1.7em;
+}
+
+#main #firstcolumn #typeeffect span{
+	color: #FF414D;
+	font-weight: 800;
+}
+#main #main-image img{
+
+	width: 100%;
+	height: auto;
+}
+/* ---------------------style ends for main ------------------ */
+
+/* ---------------------style for working ---------------------*/
+#working #work-header{
+	font-weight: bold;
+	font-size: 2.5em;
+}
+
+#working h6{
+	color: red;
+	font-weight: 400;
+	margin-bottom: 50px;
+}
+
+#working #card{
+	padding: 25px;
+	margin-bottom: 100px;
+}
+
+#working #card #stepnumber{
+	color: red;
+	font-size: 3em;
+	font-weight: 500;
+	text-align: right;
+}
+
+#working #card h3, #working #card p{
+	text-align: center;
+	font-weight: 400;
+}
+
+#working img{
+	width: 80%;
+	height: auto;
+	margin: 0px 10%;
+}
+/* -------------------style end for working --------------------------*/
+
+/* -------------------style for about --------------------------------*/
+#about{
+	margin: 60px auto;
+}
+
+#about img{
+	width: 100%;
+	padding: 20px;
+	margin-top: 50px;
+}
+
+#about #aboutpara{
+	padding: 20px 40px 20px 60px;
+	margin: 50px auto;
+}
+
+#about #aboutpara h3{
+	line-height: 1.5;
+	font-weight: 400;
+	color: #FF414D;
+}
+
+#about #aboutpara p{
+	font-weight: 400;
+	color: #000000;
+	opacity: 87%;
+	font-size: 16px;
+	line-height: 1.8;
+}
+
+/* -------------------style for about ends ---------------------------*/
+
+/* -------------------style for footer -------------------------------*/
+#footer{
+	background-color: #002D40;
+	color: white;
+	padding: 50px;
+	font-weight: 200;
+}
+
+#footer h2{
+	margin: 30px auto;
+	font-size: 1em;
+}
+
+#footer ul{
+	padding-left: 0;
+}
+
+#footer ul li{
+	list-style: none;
+}
+
+#footer a{
+	text-decoration: none;
+	color: #D9ECF2;
+}
+
+#footer a:hover{
+	color: #1AA6B7;
+}
+/* --------------------style for footer ends -------------------------*/
+
+#back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display:none;
+}
+
+
+/* --------------------------media queries starts------------------------ */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+	#navbar-header a#logo{
+	    font-size: 2.3vw;
+    }
+
+    #working #work-header{
+    	font-size: 1.9em;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	#navbar-header a#logo{
+	    font-size: 3vw;
+    }
+
+    #working #work-header{
+    	font-size: 1.8em;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+
+	#navbar-header a#logo{
+	    font-size: 3.7vw;
+    }
+
+    #main #firstcolumn{
+    	margin: 40px auto;
+    }
+
+    #working #work-header{
+    	font-size: 1.8em;
+    }
+
+    #working #work-header, #working h6{
+    	text-align: center;
+    }
+}
+
+@media (max-width: 575px) {
+
+	#navbar-header a#logo{
+	    font-size: 4.5vw;
+    }
+
+    #main #firstcolumn{
+    	margin: 40px auto;
+    }
+
+    #main #firstcolumn #typeeffect{
+		font-size: 1.5em;
+    }
+
+    #working #work-header{
+    	font-size: 2em;
+    }
+
+    #working #work-header, #working h6{
+    	text-align: center;
+    }
+
+    #working #card #stepnumber{
+		font-size: 2.5em;
+	}
+
+    #working #card h3{
+    	font-size: 1.5em;
+    }
+
+    #working #card p{
+    	font-size: 0.8em;
+    }
+}
+/* --------------------------media queries end----------------------------- */

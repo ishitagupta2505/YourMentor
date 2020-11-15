@@ -1,0 +1,95 @@
+body{
+	margin: 80px auto;
+	font-family: 'Work Sans', sans-serif;
+	background-color: #D9ECF2;
+}
+
+.container{
+	width: 30%;
+}
+
+h1{
+	text-align: center;
+	font-size: 2em;
+}
+
+p{
+	text-align: center;
+	margin-bottom: 50px;
+	font-weight: 200;
+}
+
+#login{
+	border: 1px solid white;
+	border-radius: 10px;
+	-webkit-box-shadow: 1px 1px 5px 3px #ccc;
+    -moz-box-shadow:    1px 1px 5px 3px #ccc;
+    box-shadow:         1px 1px 5px 3px #ccc;
+    padding: 50px;
+    background-color: white;
+}
+
+.form-control{
+	box-shadow: linear-gradient(#002D40, #FF414D, #002D40);
+}
+
+#login svg{
+	text-align: center;
+	width: 100%;
+	font-size: 3em;
+	margin-bottom: 50px;
+	color: #002D40;
+}
+
+#login #forgot{
+	width: 100%;
+	text-align: right;
+	padding: 5px;
+}
+
+#login #forgot a{
+	text-decoration: none;
+	color: black;
+	font-size: 0.9rem;
+}
+
+#login #forgot a:hover{
+	/*color: #1AA687;*/
+	color: #002D40;
+}
+
+.btn-login{
+	background-color: #002D40;
+	color: #fff;
+	border: 0px;
+	padding: 14px 20px;
+	border-radius: 18px;
+	width: 100%;
+	display: block;
+	cursor: pointer;
+	font-size: 1.1rem;
+	transition: all .25s ease;
+	margin-top: 40px;
+}
+
+.btn-login:hover{
+	transform: translate(0,-10px);
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.container{
+		width: 40%;
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+	.container{
+		width: 60%;
+	}
+}
+
+@media (max-width: 575px) {
+	.container{
+		width: 80%;
+	}
+}
