@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Login</title>
+        <title>Register</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;400;600;700&display=swap" rel="stylesheet">
@@ -14,8 +14,8 @@
         <link rel="stylesheet" href="{% static 'css/login_styles.css' %}">
     </head>
     <body>
-        <!-- login form starts -->
-        <h1>Login Form</h1>
+        <!-- register form starts -->
+        <h1>Register Form</h1>
         <p>Welcome Back :)</p>
         <div class="container" id="login">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -23,24 +23,37 @@
             </svg>
             <form method="POST" action="" autocomplete="off">
                 {% csrf_token %}
-                <div class="form-group">
-                    <input type="text" name="username" class="form-control" placeholder="Username">
+                <div class="form-group" style="margin: 10px 34px;">
+                	
+                    <!-- <input type="text" name="username" class="form-control" placeholder="Username"> -->
+                	{{form.username}}
                 </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" name="password">
+                <div class="form-group" style="margin: 10px 34px;">
+                    <!-- <input type="password" class="form-control" placeholder="Password" name="password"> -->
+                    {{form.password1}}
                 </div>
-                <div id="forgot">
-                    <a href="">Forgot password?</a>
+         		<div class="form-group" style="margin: 10px 34px;">
+                    <!-- <input type="password" class="form-control" placeholder="Password" name="password"> -->
+                    {{form.password2}}
                 </div>
 
-                <button class="btn-login">Log In</button>
+                <button class="btn-login">Register</button>
 
             </form>
+             {{form.errors}}
+            {% for message in messages %}
+				<p style="margin: 20px; color: #002D40; font-weight: 400;">{{message}}</p>
+	        {% endfor %}
         </div>
-        {% for message in messages %}
-			<p style="margin: 20px; color: #002D40; font-weight: 400;">{{message}}</p>
-        {% endfor %}
-        <!-- login form ends -->
+
+        <!-- register form ends -->
+
+        <script>
+        	var form_fields = document.querySelectorAll('input');
+        	form_fields[1].placeholder = 'Username....';
+        	form_fields[2].placeholder = 'Password...';
+        	form_fields[3].placeholder = 'Confirm Password..';
+        </script>
 
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

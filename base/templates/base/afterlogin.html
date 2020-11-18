@@ -1,4 +1,5 @@
 {% load static %}
+{% load auth_extras %}
 
 <!doctype html>
 <html lang="">
@@ -15,6 +16,7 @@
 
         <link rel="stylesheet" href="{% static 'css/after_login.css' %}">
         <link rel="stylesheet" href="{% static 'css/mycourses.css' %}">
+        <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 
         <!-- for scrolling effect -->
         <link rel="stylesheet" href="{% static 'css/scroll.css' %}">
@@ -30,12 +32,21 @@
 
         <div id="deppage">
             <div class="d-none d-md-block" id="sidebar" onmouseover="togglesidebar()" onmouseout="togglesidebar()">
-                <a class="navbar-brand" href="after_login.html" id="logo">YourMentor</a>
+                <a class="navbar-brand" href="{% url 'home' %}" id="logo">YourMentor</a>
                 <ul>
                     <li><a href=""><i class="fas fa-comments"></i>Chat</a></li>
                     <li><a href="{% url 'department' %}"><i class="fas fa-university"></i>Department</a></li>
-                    <li><a href=""><i class="fas fa-user"></i>MyProfile</a></li>
+                    {% if request.user|has_group:"student" %}
+                    <li><a href="{% url 'profilestudent' %}"><i class="fas fa-user"></i>MyProfile</a></li>
+                    {% endif %}
+                    {% if request.user|has_group:"teacher" %}
+                    <li><a href="{% url 'profileteacher' %}"><i class="fas fa-user"></i>MyProfile</a></li>
+                    {% endif %}
                     <li><a href="{% url 'mycourse' %}"><i class="fas fa-book-open"></i>MyCourses</a></li>
+                    {% if request.user.is_staff %}
+                    <li><a href="{% url 'register' %}" style="font-size: 1vw;"><i class="fas fa-user-graduate"></i>RegisterStudent</a></li>
+                    <li><a href="{% url 'registerTeacher' %}" style="font-size: 1vw;"><i class="fas fa-chalkboard-teacher"></i>RegisterTeacher</a></li>
+                    {% endif %}
                     <li><a href="{% url 'logoutUser' %}"><i class="fas fa-sign-out-alt"></i>LogOut</a></li>
                 </ul>
             </div>
@@ -59,8 +70,12 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="ddcontent">
                                 <a class="dropdown-item" href=""><i class="fas fa-comments"></i>Chat</a>
                                 <a class="dropdown-item" href="{% url 'department' %}"><i class="fas fa-university"></i>Department</a>
-                                <a class="dropdown-item" href=""><i class="fas fa-user"></i>MyProfile</a>
+                                <a class="dropdown-item" href="{% url 'profilestudent' %}"><i class="fas fa-user"></i>MyProfile</a>
                                 <a class="dropdown-item" href="{% url 'mycourse' %}"><i class="fas fa-book-open"></i>MyCourses</a>
+                                {% if request.user.is_staff %}
+                                <a class="dropdown-item" href="{% url 'register' %}"><i class="fas fa-user-graduate"></i>RegisterStudent</a>
+                                <a class="dropdown-item" href="{% url 'registerTeacher' %}"><i class="fas fa-chalkboard-teacher"></i>RegisterTeacher</a>
+                                {% endif %}
                                 <a class="dropdown-item" href="{% url 'logoutUser' %}"><i class="fas fa-sign-out-alt"></i>LogOut</a>
                             </div>
                         </div>
