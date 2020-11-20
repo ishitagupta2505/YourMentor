@@ -1,4 +1,4 @@
-.container{
+#deppage #main .container#profile{
 	margin-left: 50px;
 }
 
@@ -6,19 +6,18 @@ ul li{
 	list-style-type: none;
 }
 
-#name{
+#deppage #main #profile #name{
 	height: 100px;
 	font-size: 2.5em;
 	margin-top: 100px;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 }
 
-#name svg{
-	/*margin-left: 50px;*/
+#deppage #main #profile #name svg{
 	margin-right: 30px;
 	margin-top: 15px;
 }
 
-#heading{
+#deppage #main #profile #heading{
 	text-align: center;
 }

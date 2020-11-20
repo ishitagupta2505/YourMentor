@@ -13,5 +13,6 @@ urlpatterns=[
 	path('mycourse/', views.mycourse, name="mycourse"),
 	path('profilestudent/', views.profilestudent, name="profilestudent"),
 	path('profileteacher/', views.profileteacher, name="profileteacher"),
+	path(r'^teachers/(?P<department>.+)/$', views.teacherlist, name="teachers"),
 
 ]

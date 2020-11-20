@@ -1,0 +1,31 @@
+{% extends 'base/afterlogin.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container" id="faculty">
+	<div class="row">
+		{% for i in t %}
+		<div class="col-md-6">
+			<div class="row mx-0" id="faculty-box">
+				<div class="col-md-4 px-0">
+					<div id="faculty-img">
+						<img class="img-responsive" src="{{i.profile_pic.url}}">
+					</div>
+				</div>
+				<div class="col-md-8 pr-0" id="details">
+					<p><strong>{{i.UserName}}</strong></p>
+					<p>{{i.Type}}</p>
+					<p><strong>Specialization</strong></p>
+					<p>{{i.Special}}</p>
+					<p><strong>Email</strong></p>
+					<p>{{i.Email}}</p>
+					<a href="">Chat</a>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}

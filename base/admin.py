@@ -12,6 +12,14 @@ class CourseAdmin(admin.ModelAdmin):
 	search_fields = ('Code', 'Name')
 
 
-#admin.site.register(Course)
-admin.site.register(Student)
-admin.site.register(Teacher)
+@admin.register(Teacher)
+class TeacherAdmin(admin.ModelAdmin):
+	list_display = ('UserName', 'Email')
+	search_fields = ('UserName', 'Email')
+
+
+@admin.register(Student)
+class StudentAdmin(admin.ModelAdmin):
+	list_display = ('UserName', 'Email')
+	search_fields = ('UserName', 'Email')
+

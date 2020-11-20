@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container" id="profile">
 	<div class="row" id="name">
 		<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
@@ -13,10 +13,9 @@
 	<hr>
 	<div class="row">
 		<div class="col-sm-6">
-			<div>{{s.Year_of_study}}</div>
-			<div>University RollNo.: {{s.RollNo}}</div>
 			<div>Branch: {{s.Department}}</div>
-			<div>Year of Graduation:</div>
+			<div>University RollNo.: {{s.RollNo}}</div>
+			<div>Current Year: {{s.Year_of_study}}</div>
 			<br><br>
 			<div id="heading">User Details</div>
 			<hr style="width: 50%">

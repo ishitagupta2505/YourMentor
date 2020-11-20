@@ -1,0 +1,40 @@
+#faculty{
+	margin-top: 100px;
+}
+
+#faculty .row{
+	margin-bottom: 30px;
+}
+
+#faculty #faculty-box{
+	padding: 1rem;
+	border: 1px solid black;
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+#faculty #faculty-img{
+	position: relative;
+    overflow: hidden;
+    width: 8rem;
+    max-width: 100%;
+    height: 11rem;
+}
+
+#faculty #faculty-img img{
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+#faculty #faculty-box #details p strong{
+	font-weight: 600;
+}
+
+#faculty #faculty-box #details p{
+	margin: 0 0 10px;
+}

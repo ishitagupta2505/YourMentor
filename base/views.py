@@ -31,12 +31,13 @@ def registerUser(request):
 		if form.is_valid():
 			user = form.save()
 			username = form.cleaned_data.get('username')
-			messages.success(request, 'User registered successfully with username: ' + username)
 
 			group = Group.objects.get(name='student')
 			user.groups.add(group)
 			Student.objects.create(
 				user=user,)
+
+			messages.success(request, 'Student registered successfully with username: ' + username)
 
 	context = {'form': form}
 	return render(request, 'base/register.html', context)
@@ -50,14 +51,16 @@ def registerTeacher(request):
 	if request.method == 'POST':
 		form = UserCreationForm(request.POST)
 		if form.is_valid():
-			userteacher = form.save()
-			userteachername = form.cleaned_data.get('username')
-			messages.success(request, 'User registered successfully with username: ' + userteachername)
-
+			user = form.save()
+			username = form.cleaned_data.get('username')
+		
 			group = Group.objects.get(name='teacher')
-			userteacher.groups.add(group)
+			user.groups.add(group)
 			Teacher.objects.create(
 				user=user,)
+
+			messages.success(request, 'Teacher registered successfully with username: ' + username)
+
 
 	context = {'form': form}
 	return render(request, 'base/register.html', context)
@@ -85,7 +88,7 @@ def loginUser(request):
 def logoutUser(request):
 	logout(request)
 	messages.info(request, "Logged out successfully!")
-	return redirect('login')
+	return redirect('home')
 
 
 @login_required(login_url='login')
@@ -95,7 +98,13 @@ def department(request):
 
 @login_required(login_url='login')
 def mycourse(request):
-	return render(request, 'base/course.html')
+	courses = Course.objects.filter(student__user=request.user)
+	print('courese', courses)
+	coursesteacher = Course.objects.filter(teacher__user=request.user)
+	print('coursesteacher', coursesteacher)
+
+	context = {'courses': courses, 'coursesteacher': coursesteacher}
+	return render(request, 'base/course.html', context)
 
 
 @login_required(login_url='login')
@@ -120,3 +129,12 @@ def profileteacher(request):
 
 	context = {'courses':courses, 't':t, 'count':count}
 	return render(request, 'base/profileteacher.html', context)
+
+
+@login_required(login_url='login')
+def teacherlist(request, department):
+
+    t = Teacher.objects.filter(Department=department)
+    
+    context={'t': t}
+    return render(request, 'base/teacherlist.html', context)

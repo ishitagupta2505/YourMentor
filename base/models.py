@@ -1,3 +1,4 @@
+from colorfield.fields import ColorField
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -8,11 +9,11 @@ class Course(models.Model):
 	Code = models.CharField(max_length=10, null=True)
 	Name = models.CharField(max_length=50, null=True)
 	Coordinator = models.CharField(max_length=50, null=True, blank=True)
-	# studentcourse = models.ManyToManyField(Student)
-	# teachercourse = models.ManyToManyField(Teacher)
+	color = ColorField(default='#ffffff')
 
 	def __str__(self):
 		return self.Code
+
 
 class Student(models.Model):
 	user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
@@ -25,16 +26,18 @@ class Student(models.Model):
 	Password = models.CharField(max_length=10, null=True)
 
 	def __str__(self):
-		return self.UserName
+		return self.user
 
 class Teacher(models.Model):
 	user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-	UserName = models.CharField(max_length=50, null=True)
-	Teacher_code = models.CharField(max_length=20, null=True)
+	UserName = models.CharField(max_length=100, null=True)
+	Type = models.CharField(max_length=100, null=True)
+	Department = models.CharField(max_length=200, null=True)
 	Email = models.EmailField(max_length=100, unique=True, null=True)
 	Special = models.TextField()
 	CoursesEnrolled = models.ManyToManyField(Course)
-	Password = models.CharField(max_length=10, null=True)
+	Password = models.CharField(max_length=20, null=True)
+	profile_pic = models.ImageField(null=True, blank=True)
 
 	def __str__(self):
-		return self.UserName
+		return str(self.user)
