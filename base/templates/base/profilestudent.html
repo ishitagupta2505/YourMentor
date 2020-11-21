@@ -11,26 +11,26 @@
         <span>{{request.user.get_full_name}}</span>
 	</div>
 	<hr>
-	<div class="row">
+	<div class="row" id="profiledetails">
 		<div class="col-sm-6">
-			<div>Branch: {{s.Department}}</div>
-			<div>University RollNo.: {{s.RollNo}}</div>
-			<div>Current Year: {{s.Year_of_study}}</div>
+			<div><strong>Branch: </strong>{{s.Department}}</div>
+			<div><strong>RollNo.: </strong>{{s.RollNo}}</div>
+			<div><strong>Current Year: </strong>{{s.Year_of_study}}</div>
 			<br><br>
-			<div id="heading">User Details</div>
-			<hr style="width: 50%">
+			<div id="heading"><strong>USER DETAILS</strong></div>
+			<hr>
 			<div>
 				<ul class="list-group">
-					<li>First Name: {{request.user.first_name}}</li>
-					<li>Last Name: {{request.user.last_name}}</li>
-					<li>Email Address: {{request.user.email}}</li>
-					<li>No. of Enrolled Courses: {{count}}</li>
+					<li><strong>First Name: </strong>{{request.user.first_name}}</li>
+					<li><strong>Last Name: </strong>{{request.user.last_name}}</li>
+					<li><strong>Email Address: </strong>{{request.user.email}}</li>
+					<li><strong>No. of Enrolled Courses: </strong>{{count}}</li>
 				</ul>
 			</div>
 		</div>
 		<div class="col-sm-6">
-			<div id="heading">Course Details</div>
-			<hr style="width: 50%">
+			<div id="heading"><strong>COURSE DETAILS</strong></div>
+			<hr>
 			<div>
 				<ul class="list-group">
 					{% for i in courses %}

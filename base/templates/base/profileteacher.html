@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container" id="profile">
 	<div class="row" id="name">
 		<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
@@ -11,25 +11,25 @@
         <span>{{request.user.get_full_name}}</span>
 	</div>
 	<hr>
-	<div class="row">
+	<div class="row" id="profiledetails">
 		<div class="col-sm-6">
 			<div><p><strong>{{t.Type}}</strong></p></div>
-			<div>Department: {{t.Department}}</div>
+			<div><strong>Department: </strong>{{t.Department}}</div>
 			<br><br>
-			<div id="heading">User Details</div>
-			<hr style="width: 50%">
+			<div id="heading"><strong>USER DETAILS</strong></div>
+			<hr>
 			<div>
 				<ul class="list-group">
-					<li>First Name: {{request.user.first_name}}</li>
-					<li>Last Name: {{request.user.last_name}}</li>
-					<li>Email Address: {{request.user.email}}</li>
-					<li>No. of Enrolled Courses: {{count}}</li>
+					<li><strong>First Name: </strong>{{request.user.first_name}}</li>
+					<li><strong>Last Name: </strong>{{request.user.last_name}}</li>
+					<li><strong>Email Address: </strong>{{request.user.email}}</li>
+					<li><strong>No. of Courses: </strong>{{count}}</li>
 				</ul>
 			</div>
 		</div>
 		<div class="col-sm-6">
-			<div id="heading">Course Details</div>
-			<hr style="width: 50%">
+			<div id="heading"><strong>COURSE DETAILS</strong></div>
+			<hr>
 			<div>
 				<ul class="list-group">
 					{% for i in courses %}

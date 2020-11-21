@@ -99,9 +99,7 @@ def department(request):
 @login_required(login_url='login')
 def mycourse(request):
 	courses = Course.objects.filter(student__user=request.user)
-	print('courese', courses)
 	coursesteacher = Course.objects.filter(teacher__user=request.user)
-	print('coursesteacher', coursesteacher)
 
 	context = {'courses': courses, 'coursesteacher': coursesteacher}
 	return render(request, 'base/course.html', context)
@@ -138,3 +136,10 @@ def teacherlist(request, department):
     
     context={'t': t}
     return render(request, 'base/teacherlist.html', context)
+
+
+@login_required(login_url='login')
+def courseteachers(request, courses):
+	t = Teacher.objects.filter(CoursesEnrolled__Name=courses)
+	context={'t': t}
+	return render(request, 'base/teacherlist.html', context)
