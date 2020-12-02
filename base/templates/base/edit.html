@@ -1,0 +1,44 @@
+{% extends 'base/afterlogin.html' %}
+{% load static %}
+{% load auth_extras %}
+
+{% block content %}
+
+<br>
+<div class="row" style="margin-top: 80px; margin-bottom: 20px;">
+	<div class="col-md-4" style="margin-left: 50px; color: white;">
+		<div class="card card-body" style="background-color: #002D40;">
+			<a class="btn" style="background-color: #D9ECF2;" href="{% url 'profileteacher' %}"> &#8592; Back to Profile</a>
+			<hr>
+			<h3 style="text-align: center">Account Settings</h3>
+			<hr>
+			{% if request.user|has_group:"teacher" %}
+			<img class="profile-pic" src="{{request.user.teacher.profile_pic.url}}" style="margin: 0 auto;">
+			{% endif %}
+			{% if request.user|has_group:"student" %}
+			<img class="profile-pic" src="{{request.user.student.profile_pic.url}}" style="margin: 0 auto;">
+			{% endif %}
+		
+		</div>
+	</div>
+	<div class="col-md-7">
+		<div class="card card-body" style="background-color: #1AA6B7;">
+			
+			<form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+				{% for field in form %}
+				<div class="form-group">
+					<span>{{field.label_tag}}</span>
+					<span>{{field}}</span>
+				</div>
+				{% endfor %}
+		
+			<input class="btn btn-primary" type="submit" name="Update Information">
+			</form>
+		</div>
+	</div>
+</div>
+
+
+
+{% endblock %}

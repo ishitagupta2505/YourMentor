@@ -24,14 +24,15 @@ class Student(models.Model):
 	Department = models.CharField(max_length=10, null=True)
 	CoursesEnrolled = models.ManyToManyField(Course)
 	Password = models.CharField(max_length=10, null=True)
+	profile_pic = models.ImageField(null=True, blank=True)
 
 	def __str__(self):
-		return self.user
+		return str(self.user)
 
 class Teacher(models.Model):
 	user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
 	UserName = models.CharField(max_length=100, null=True)
-	Type = models.CharField(max_length=100, null=True)
+	Designation = models.CharField(max_length=100, null=True)
 	Department = models.CharField(max_length=200, null=True)
 	Email = models.EmailField(max_length=100, unique=True, null=True)
 	Special = models.TextField()

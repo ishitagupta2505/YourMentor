@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from django.contrib.auth.forms import UserCreationForm
+from .forms import FacultyForm, StudentForm
 # Create your views here.
 from .models import *
 
@@ -143,3 +144,36 @@ def courseteachers(request, courses):
 	t = Teacher.objects.filter(CoursesEnrolled__Name=courses)
 	context={'t': t}
 	return render(request, 'base/teacherlist.html', context)
+
+@login_required(login_url='login')
+def accountSettings(request):
+	teacher = request.user.teacher
+	form = FacultyForm(instance=teacher)
+
+	if request.method == 'POST':
+		form = FacultyForm(request.POST, request.FILES, instance=teacher)
+		if form.is_valid():
+			form.save()
+
+			return redirect('/')
+
+
+	context = {'form':form}
+	return render(request, 'base/edit.html', context)
+
+
+@login_required(login_url='login')
+def accountSettingsstudent(request):
+	student = request.user.student
+	form = StudentForm(instance=student)
+
+	if request.method == 'POST':
+		form = StudentForm(request.POST, request.FILES, instance=student)
+		if form.is_valid():
+			form.save()
+
+			return redirect('/')
+
+
+	context = {'form':form}
+	return render(request, 'base/edit.html', context)

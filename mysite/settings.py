@@ -130,3 +130,5 @@ STATICFILES_DIRS=[
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/faculty')
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
