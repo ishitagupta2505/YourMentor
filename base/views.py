@@ -4,9 +4,6 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from .forms import FacultyForm, StudentForm
 
-# from .filters import TeacherFilter
-
-
 # Create your views here.
 from .models import *
 

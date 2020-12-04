@@ -32,15 +32,9 @@
 		    </div>
 		</div>
 
-	{% else %}
-	    No search results for this query
-	{% endif %}
+	{% elif resultsstudent %}
 
-
-{% if resultsstudent  %}
-
-
-		<br/>
+	<br/>
 
 		<div class="container" id="faculty">
 		    <div class="row">
@@ -54,9 +48,6 @@
 		                    </div>
 		                    <div class="col-md-8 pr-0" id="details">
 		                        <p><strong>{{result.UserName}}</strong></p>
-		                        <!-- <p>{{result.Type}}</p>
-		                        <p><strong>Specialization</strong></p>
-		                        <p>{{result.Special}}</p> -->
 		                        <p><strong>Email</strong></p>
 		                        <p>{{result.Email}}</p>
 		                        <a href="">Chat</a>
@@ -73,31 +64,3 @@
 
 
 {% endblock %}
-
-<!-- <h1>Search Page</h1>
-
-<br/>
-<form action="{% url 'search:searchposts' %}" method="GET" value="{{request.GET.q}}">
-Search <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search posts"/>
-<input type="submit" name="submit" value="Search"/>
-</form>
-
-
-{% if submitbutton == 'Search' and request.GET.q != '' %}
-{% if results %}
-<h1>Results for <b>{{ request.GET.q }}</b></h1>
-<br/><br/>
-
-{% for result in results %}
-
-{{result.title}}
-<br/>
-
-{{result.content}}
-<br/>
-
-{% endfor %}
-{% else %}
-No search results for this query
-{% endif %}
-{% endif %} -->

@@ -23,5 +23,4 @@ class StudentAdmin(admin.ModelAdmin):
 	list_display = ('UserName', 'Email')
 	search_fields = ('UserName', 'Email')
 
-# admin.site.register(Post)
 

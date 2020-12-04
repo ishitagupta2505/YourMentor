@@ -52,11 +52,6 @@ header{
     transition: background-position 275ms ease;
 }
 
-/*#navbar-header ul li a.active{
-	border-bottom: 2px dotted #1AA6B7;
-}
-*/
-
 #navbar-header ul li a:hover{
 	color: #002D40;
 	background-position: 0 100%;
@@ -79,7 +74,6 @@ header{
 
 /*  ------------------style for main-----------------------*/
 #main{
-	/*margin-top: 150px;*/
 	margin-bottom: 110px;
 }
 
