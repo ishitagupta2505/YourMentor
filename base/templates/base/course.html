@@ -6,7 +6,7 @@
 <div class="container" id="courses">
     <div class="row">
         {% for i in courses %}
-        <div class="col-8 col-md-3 singlecourse scrolleffect" style="margin: 20px;">
+        <div class="col-11 col-md-5 col-lg-3 singlecourse scrolleffect" style="margin: 20px;">
             <a href="{% url 'courseteachers' i.Name %}">
                 <div class="align-items-center">
                     <div class="image">
@@ -20,7 +20,7 @@
         </div>
         {% endfor %}
         {% for i in coursesteacher %}
-        <div class="col-8 col-md-3 singlecourse scrolleffect" style="margin: 20px;">
+        <div class="col-11 col-md-5 col-lg-3 singlecourse scrolleffect" style="margin: 20px;">
             <a href="{% url 'courseteachers' i.Name %}">
                 <div class="align-items-center">
                     <div class="image">

@@ -3,6 +3,10 @@ from django.http import HttpResponse
 
 from django.contrib.auth.forms import UserCreationForm
 from .forms import FacultyForm, StudentForm
+
+# from .filters import TeacherFilter
+
+
 # Create your views here.
 from .models import *
 
@@ -12,6 +16,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from .decorators import unauthenticated_user, allowed_users
+from django.db.models import Q
+
 
 
 
@@ -177,3 +183,33 @@ def accountSettingsstudent(request):
 
 	context = {'form':form}
 	return render(request, 'base/edit.html', context)
+
+
+@login_required(login_url='login')
+def searchposts(request):
+    if request.method == 'GET':
+        query= request.GET.get('q')
+        print(query)
+
+        submitbutton= request.GET.get('submit')
+        print(submitbutton)
+
+        if query is not None:
+            lookups= Q(UserName__icontains=query)
+
+            results= Teacher.objects.filter(lookups)
+            resultsstudent = Student.objects.filter(lookups)
+            print(results)
+            print(resultsstudent)
+
+            context={'results': results, 'resultsstudent':resultsstudent, 
+                     'submitbutton': submitbutton}
+
+            return render(request, 'base/search.html', context)
+
+        else:
+            return render(request, 'base/search.html')
+
+    else:
+        return render(request, 'base/search.html')
+

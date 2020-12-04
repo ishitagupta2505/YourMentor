@@ -1,0 +1,103 @@
+{% extends 'base/afterlogin.html' %}
+{% load static %}
+
+{% block content %}
+	{% if results %}
+
+
+		<br/>
+
+		<div class="container" id="faculty">
+		    <div class="row">
+		        {% for result in results %}
+		            <div class="col-md-6 scrolleffect">
+		                <div class="row mx-0" id="faculty-box">
+		                    <div class="col-md-4 px-0">
+		                        <div id="faculty-img">
+		                            <img class="img-responsive" src="{{result.profile_pic.url}}">
+		                        </div>
+		                    </div>
+		                    <div class="col-md-8 pr-0" id="details">
+		                        <p><strong>{{result.UserName}}</strong></p>
+		                        <p>{{result.Type}}</p>
+		                        <p><strong>Specialization</strong></p>
+		                        <p>{{result.Special}}</p>
+		                        <p><strong>Email</strong></p>
+		                        <p>{{result.Email}}</p>
+		                        <a href="">Chat</a>
+		                    </div>
+		                </div>
+		            </div>
+		        {% endfor %}
+		    </div>
+		</div>
+
+	{% else %}
+	    No search results for this query
+	{% endif %}
+
+
+{% if resultsstudent  %}
+
+
+		<br/>
+
+		<div class="container" id="faculty">
+		    <div class="row">
+		        {% for result in resultsstudent  %}
+		            <div class="col-md-6 scrolleffect">
+		                <div class="row mx-0" id="faculty-box">
+		                    <div class="col-md-4 px-0">
+		                        <div id="faculty-img">
+		                            <img class="img-responsive" src="{{result.profile_pic.url}}">
+		                        </div>
+		                    </div>
+		                    <div class="col-md-8 pr-0" id="details">
+		                        <p><strong>{{result.UserName}}</strong></p>
+		                        <!-- <p>{{result.Type}}</p>
+		                        <p><strong>Specialization</strong></p>
+		                        <p>{{result.Special}}</p> -->
+		                        <p><strong>Email</strong></p>
+		                        <p>{{result.Email}}</p>
+		                        <a href="">Chat</a>
+		                    </div>
+		                </div>
+		            </div>
+		        {% endfor %}
+		    </div>
+		</div>
+
+	{% else %}
+	    No search results for this query
+	{% endif %}
+
+
+{% endblock %}
+
+<!-- <h1>Search Page</h1>
+
+<br/>
+<form action="{% url 'search:searchposts' %}" method="GET" value="{{request.GET.q}}">
+Search <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search posts"/>
+<input type="submit" name="submit" value="Search"/>
+</form>
+
+
+{% if submitbutton == 'Search' and request.GET.q != '' %}
+{% if results %}
+<h1>Results for <b>{{ request.GET.q }}</b></h1>
+<br/><br/>
+
+{% for result in results %}
+
+{{result.title}}
+<br/>
+
+{{result.content}}
+<br/>
+
+{% endfor %}
+{% else %}
+No search results for this query
+{% endif %}
+{% endif %} -->

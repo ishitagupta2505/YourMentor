@@ -4,7 +4,6 @@
 
 #deppage #main #courses .singlecourse{
 	border: 1px solid white;
-	margin: 30px auto;
 	padding: 20px;
 	box-shadow: 0px 1px 10px #999;
 }
@@ -34,22 +33,30 @@
 
 @media (min-width: 768px) and (max-width: 991px) {
 
-	#deppage #main #courses .singlecourse h3{
-		font-size: 1.8vw;
-	}
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
+	/*#deppage #main #courses{
+		padding: 10% 7%;
+	}*/
 
 	#deppage #main #courses .singlecourse h3{
 		font-size: 2vw;
 	}
 }
 
+@media (min-width: 576px) and (max-width: 767px) {
+
+	#deppage #main #courses{
+		padding-top: 12%; 
+	}
+
+	#deppage #main #courses .singlecourse h3{
+		font-size: 2.6vw;
+	}
+}
+
 @media (max-width: 575px) {
 
 	#deppage #main #courses .singlecourse h3{
-		font-size: 2.5vw;
+		font-size: 2.8vw;
 	}
 }
 /*--------------------end of media queries-----------------------------*/

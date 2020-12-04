@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'base',
-    'colorfield'
+    'colorfield',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

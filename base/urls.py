@@ -2,6 +2,10 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
 
+from django.conf.urls import url
+from django.contrib import admin
+# from .views import (searchposts)
+
 urlpatterns=[
 
 	path('', views.home, name="home"),
@@ -35,4 +39,7 @@ urlpatterns=[
 	path(r'^courseteachers/(?P<courses>.+)/$', views.courseteachers, name="courseteachers"),
 	path('accountsettings/', views.accountSettings, name="accountSettings"),
     path('accountsetting/', views.accountSettingsstudent, name="accountSettingsstudent"),
+
+    path(r'^result/$', views.searchposts, name="searchposts"),
+
 ]

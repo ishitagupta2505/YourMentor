@@ -64,6 +64,7 @@ body{
 	margin-right: 25px;
 	font-size: 2vw;
 	vertical-align: middle;
+	width: 30px;
 }
 
 #deppage #main{
@@ -75,7 +76,6 @@ body{
 
 #deppage #main .searchbar{
     height: 50px;
-    width: 50px;
     background-color: #002D40;
     border-radius: 30px;
     padding: 5px;
@@ -88,9 +88,10 @@ body{
     outline: 0;
     background: none;
     padding: 0;
-    width: 0;
-    caret-color:transparent;
+    width: 150px;
+    caret-color:white;
     line-height: 40px;
+    margin-left: 3%;
 }
 
 #deppage #main .search_icon{
@@ -103,33 +104,19 @@ body{
     border-radius: 50%;
     color:white;
     text-decoration:none;
-}
-
-#deppage #main .searchbar:hover{
-	width: 210px;
-	transition: width 0.4s linear;
-}
-
-#deppage #main .searchbar:hover > .search_input{
-    width: 150px;
-    caret-color: white;
-    transition: width 0.6s linear;
-    padding-left: 5px;
-}
-
-#deppage #main .searchbar:hover > .search_icon{
     background: white;
     color: #FF414D;
 }
 
 #deppage #main .person{
-	margin-left: 60%;
+	text-align: right;
 	display: flex;
     justify-content: center;
     align-items: center;
     color: #002D40;
     font-size: 1.5vw;
     position: relative;
+    padding: 1%;
 }
 
 #deppage #main .person i{
@@ -186,7 +173,7 @@ body{
 }
 
 #deppage #main #department .singledepartment h3{
-	font-size: 1.5vw;
+	font-size: 1.6vw;
 	color: #1AA6B7;
 }
 /*--------------end my mycourse---------------*/
@@ -238,59 +225,53 @@ body{
 		padding-left: 25px;
     }
 
+    #deppage #sidebar ul li a>i{
+		font-size: 2.3vw;
+	}
+
+	#deppage #main .person{
+		font-size: 1.8vw;
+	}
+
     #deppage #main #department .singledepartment div.image{
 		width: 60px;
 		height: 60px;
 	}
 
-	#deppage #main .person{
-		margin-left: 57%;
-	}
+	#deppage #main #department .singledepartment h3{
+		font-size: 1.8vw;
+    }
+
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
 
+	#deppage #sidebar ul li a>i{
+		font-size: 2.5vw;
+	}
+
+	#deppage #main #department .singledepartment{
+		padding: 13px;
+	}
+
+	#deppage #main #department .singledepartment h3{
+		font-size: 2vw;
+    }
+
 	#deppage #sidebar ul{
-		padding-left: 20px;
-	}
-
-	#deppage #main .searchbar{
-	    height: 40px;
-	    width: 40px;
-	    margin-left: 4%;
-	}
-
-	#deppage #main .search_input{
-	    line-height: 40px;
-	}
-
-	#deppage #main .search_icon{
-	    height: 30px;
-	    width: 30px;
-	}
-
-	#deppage #main .searchbar:hover{
-		width: 150px;
-	}
-
-	#deppage #main .searchbar:hover > .search_input{
-	    width: 100px;
-	    padding-left: 5px;
+		padding-left: 18px;
 	}
 
 	#deppage #main .person{
 		font-size: 1.8vw;
-		margin-left: 53%;
+		margin-left: 30%;
+		padding: 2%;
 	}
 	
 	#deppage #main #department .singledepartment div.image{
 		width: 50px;
 		height: 50px;
 		border-radius: 15px;
-	}
-
-	#deppage #main #department .singledepartment h3{
-		font-size: 1.8vw;
 	}
 }
 
@@ -305,32 +286,35 @@ body{
 	}
 
 	#deppage #main .searchbar{
-	    height: 30px;
-	    width: 30px;
-	    margin-left: 4%;
+		height: 45px;
+		margin-left: 0;
 	}
 
 	#deppage #main .search_input{
 	    line-height: 30px;
+	    width: 100px;
 	}
 
 	#deppage #main .search_icon{
-	    height: 20px;
-	    width: 20px;
-	}
-
-	#deppage #main .searchbar:hover{
-		width: 150px;
-	}
-
-	#deppage #main .searchbar:hover > .search_input{
-	    width: 100px;
-	    padding-left: 5px;
+	    height: 35px;
+	    width: 35px;
 	}
 
 	#deppage #main .person{
 		font-size: 2vw;
-		margin-left: 35%;
+		margin-left: 25%;
+	}
+
+	#deppage #main .person i{
+		margin-right: 10px;
+	}
+
+	#deppage #main #department{
+		padding: 10% 6%;
+	}
+
+	#deppage #main #department .singledepartment{
+		padding: 10px;
 	}
 
 	#deppage #main #department .singledepartment div.image{
@@ -338,46 +322,37 @@ body{
 		height: 40px;
 		border-radius: 15px;
 		padding: 10px;
+		margin-right: 5%;
 	}
 
 	#deppage #main #department .singledepartment h3{
-		font-size: 2vw;
-	}
+		font-size: 2.5vw;
+    }
 }
 
-@media (max-width: 575px) {
+@media (min-width: 450px) and (max-width: 575px) {
 
 	#deppage #main{
 		margin-left: 0;
 	}
 
 	#deppage #main .searchbar{
-	    height: 25px;
-	    width: 25px;
-	    margin-left: 4%;
+		height: 40px;
 	}
 
 	#deppage #main .search_input{
-	    line-height: 20px;
+		width: 60px;
+		line-height: 20px;
 	}
 
 	#deppage #main .search_icon{
-	    height: 15px;
-	    width: 15px;
-	}
-
-	#deppage #main .searchbar:hover{
-		width: 100px;
-	}
-
-	#deppage #main .searchbar:hover > .search_input{
-	    width: 70px;
-	    padding-left: 5px;
+	    height: 30px;
+	    width: 30px;
 	}
 
 	#deppage #main .person{
 		font-size: 2.5vw;
-		margin-left: 30%;
+		margin-left: 10%;
 	}
 
 	#deppage #main #department .singledepartment div.image{
@@ -388,7 +363,45 @@ body{
 	}
 
 	#deppage #main #department .singledepartment h3{
-		font-size: 2.5vw;
+		font-size: 3vw;
 	}
 }
+
+@media (max-width: 449px){
+
+	#deppage #main{
+		margin-left: 0;
+	}
+
+	#deppage #main .searchbar{
+		height: 30px;
+	}
+
+	#deppage #main .search_input{
+		width: 70px;
+		line-height: 10px;
+	}
+
+	#deppage #main .search_icon{
+	    height: 20px;
+	    width: 20px;
+	}
+
+	#deppage #main .person{
+		font-size: 2.5vw;
+		margin-left: 5%;
+	}
+
+	#deppage #main #department .singledepartment div.image{
+		width: 30px;
+		height: 30px;
+		border-radius: 15px;
+		padding: 7px;
+	}
+
+	#deppage #main #department .singledepartment h3{
+		font-size: 3vw;
+	}
+}
+
 /*--------------------end of media queries-----------------------------*/
