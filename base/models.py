@@ -21,9 +21,9 @@ class Student(models.Model):
 	RollNo = models.IntegerField(null=True)
 	Email = models.EmailField(max_length=100, unique=True, null=True)
 	Year_of_study = models.IntegerField(null=True)
-	Department = models.CharField(max_length=10, null=True)
+	Department = models.CharField(max_length=200, null=True)
 	CoursesEnrolled = models.ManyToManyField(Course)
-	Password = models.CharField(max_length=10, null=True)
+	Password = models.CharField(max_length=20, null=True)
 	profile_pic = models.ImageField(null=True, blank=True)
 
 	def __str__(self):

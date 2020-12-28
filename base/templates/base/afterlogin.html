@@ -41,7 +41,10 @@
             <div class="d-none d-md-block" id="sidebar" onmouseover="togglesidebar()" onmouseout="togglesidebar()">
                 <a class="navbar-brand" href="{% url 'home' %}" id="logo">YourMentor</a>
                 <ul>
-                    <li><a href=""><i class="fas fa-comments"></i>Chat</a></li>
+                    <li><a href="https://mysterious-atoll-60958.herokuapp.com/"><i class="fas fa-comments"></i>Chat</a></li>
+                    <!-- <li><a href="https://lit-garden-28402.herokuapp.com/"><i class="fas fa-comments"></i>Chat</a></li> -->
+                    <!-- https://lit-garden-28402.herokuapp.com/ -->
+                    <!-- https://glacial-dusk-17636.herokuapp.com/ -->
                     <li><a href="{% url 'department' %}"><i class="fas fa-university"></i>Department</a></li>
                     {% if request.user|has_group:"student" %}
                     <li><a href="{% url 'profilestudent' %}"><i class="fas fa-user"></i>MyProfile</a></li>
